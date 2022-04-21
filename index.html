@@ -54,9 +54,8 @@
             <div
               v-for="(items, index) in items"
               :key="index"
-              :class="index === activeIndex ? 'thumb active' : 'thumb'"
-              @click="activeIndex = index"
-              :key="index"
+              :class="index === activeIndex ? 'thumb active w3-animate-opacity' : 'thumb'"
+              @click="jumpTo(index)"
             >
               <img :src="items.img" :alt="items.title" />
             </div>

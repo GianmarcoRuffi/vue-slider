@@ -69,7 +69,9 @@ const app = new Vue({
       }, 3000);
     },
 
-    jumpTo() {},
+    jumpTo(i) {
+      this.activeIndex = i;
+    },
   },
   mounted() {
     this.startTimer();
