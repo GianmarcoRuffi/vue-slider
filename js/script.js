@@ -63,16 +63,16 @@ const app = new Vue({
       clearInterval(this.intervalId);
     },
 
-    restartTimer() {
+    startTimer() {
       this.intervalId = setInterval(() => {
         this.slideDown();
       }, 3000);
     },
+
+    jumpTo() {},
   },
   mounted() {
-    this.intervalId = setInterval(() => {
-      this.slideDown();
-    }, 3000);
+    this.startTimer();
   },
 });
 

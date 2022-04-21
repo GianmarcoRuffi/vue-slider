@@ -31,10 +31,12 @@
           id="slider"
           tabindex="0"
           @mouseover="stopTimer"
-          @mouseleave="restartTimer"
+          @mouseleave="startTimer"
         >
+          <!-- Main image + descrizione -->
+
           <div class="items-container">
-            <div class="item active">
+            <div class="item active w3-animate-opacity">
               <img
                 :src="items[activeIndex].img"
                 :alt="items[activeIndex].title"
@@ -45,11 +47,16 @@
               </div>
             </div>
           </div>
+
+          <!-- Thumbs laterali -->
+
           <div class="thumbs-container">
             <div
-              v-for="(items, activeIndex) in items"
-              :key="activeIndex"
-              :class="activeIndex === activeIndex ? 'thumb active' : 'thumb'"
+              v-for="(items, index) in items"
+              :key="index"
+              :class="index === activeIndex ? 'thumb active' : 'thumb'"
+              @click="activeIndex = index"
+              :key="index"
             >
               <img :src="items.img" :alt="items.title" />
             </div>
