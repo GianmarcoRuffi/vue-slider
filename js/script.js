@@ -41,7 +41,7 @@ const app = new Vue({
 
     index: 0,
   },
-  method: {},
+  methods: {},
   mounted() {},
 });
 
@@ -55,8 +55,6 @@ const text = [
   "Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,",
 ];
 
-console.log(items);
-
 //variabile per raccogliere tutto l'html che va in items-container
 let itemTemplate = "";
 
@@ -67,24 +65,24 @@ let thumbTemplate = "";
 let currentIndexActive = 0;
 
 //eseguo il ciclo for sull'array delle immagini (items) e popolo l'html delle due varibaili da stampare nei due contenitori (immagini e thumbnails)
-for (let i = 0; i < items.length; i++) {
-  let classActive = "";
-  if (i === currentIndexActive) {
-    classActive = "active";
-  }
-  itemTemplate += `
-  <div class="item ${classActive}">
-    <img src="${items[i].img}" />
-      <div class="title">
-        <h2>${items[i].title}</h2>
-        <p>${items[i].text}</p>
-      </div>
-  </div>`;
-  thumbTemplate += `
-  <div class="thumb ${classActive}">
-    <img src="${items[i].img}" alt="${items[i].title}" />
-  </div>`;
-}
+// for (let i = 0; i < items.length; i++) {
+//   let classActive = "";
+//   if (i === currentIndexActive) {
+//     classActive = "active";
+//   }
+//   itemTemplate += `
+//   <div class="item ${classActive}">
+//     <img src="${items[i].img}" />
+//       <div class="title">
+//         <h2>${items[i].title}</h2>
+//         <p>${items[i].text}</p>
+//       </div>
+//   </div>`;
+//   thumbTemplate += `
+//   <div class="thumb ${classActive}">
+//     <img src="${items[i].img}" alt="${items[i].title}" />
+//   </div>`;
+// }
 //console.log(thumbTemplate);
 
 // metto in due variabili rispettivamente i contenitori che si trovano nell'html
