@@ -41,7 +41,39 @@ const app = new Vue({
 
     index: 0,
   },
-  methods: {},
+  methods: {
+    slideDown() {
+      imgs[currentIndexActive].classList.remove("active");
+
+      thumbs[currentIndexActive].classList.remove("active");
+
+      if (currentIndexActive === 4) {
+        currentIndexActive = 0;
+      } else {
+        currentIndexActive++;
+      }
+
+      imgs[currentIndexActive].classList.add("active", "w3-animate-opacity");
+
+      thumbs[currentIndexActive].classList.add("active");
+    },
+
+    slideUp() {
+      imgs[currentIndexActive].classList.remove("active");
+
+      thumbs[currentIndexActive].classList.remove("active");
+
+      if (currentIndexActive === 0) {
+        currentIndexActive = items.length - 1;
+      } else {
+        currentIndexActive--;
+      }
+
+      imgs[currentIndexActive].classList.add("active");
+
+      thumbs[currentIndexActive].classList.add("active");
+    },
+  },
   mounted() {},
 });
 
