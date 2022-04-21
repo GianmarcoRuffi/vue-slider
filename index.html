@@ -38,8 +38,8 @@
             </div>
           </div>
           <div class="thumbs-container">
-            <div class="thumb active">
-              <img :src="items[index].img" :alt="items[index].title" />
+            <div v-for="(slide, index) in items" class="thumb active" @click="">
+              <img :src="slide.img" :alt="slide.title" />
             </div>
 
             <div class="next">
