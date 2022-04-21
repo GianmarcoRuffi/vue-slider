@@ -27,12 +27,13 @@
   <body>
     <div id="app">
       <div class="main-container">
-        <div id="slider" tabindex="0">
-          <div
-            class="items-container"
-            @mouseover="stopTimer"
-            @mouseleave="restartTimer"
-          >
+        <div
+          id="slider"
+          tabindex="0"
+          @mouseover="stopTimer"
+          @mouseleave="restartTimer"
+        >
+          <div class="items-container">
             <div class="item active">
               <img
                 :src="items[activeIndex].img"

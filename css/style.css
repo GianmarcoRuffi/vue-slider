@@ -45,6 +45,15 @@
 .item.active {
   display: block;
 }
+
+.item.active:hover {
+  opacity: 0.9;
+}
+
+.thumb.active:hover {
+  opacity: 0.9;
+}
+
 .thumb {
   height: 20%;
 }
