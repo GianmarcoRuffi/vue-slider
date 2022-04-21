@@ -59,7 +59,11 @@ const app = new Vue({
       }
     },
   },
-  mounted() {},
+  mounted() {
+    this.intervalId = setInterval(() => {
+      this.slideDown();
+    }, 3000);
+  },
 });
 
 // const title = ["Svezia", "Svizzera", "Gran Bretagna", "Germania", "Paradise"];
