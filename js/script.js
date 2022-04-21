@@ -1,16 +1,49 @@
 /*
 Consegna:
-1.Dai tre array contenenti:
- - una lista ordinata di 5 immagini,
- - una lista ordinata dei relativi 5 luoghi e
- - una lista di 5 news,
- creare un array di oggetti (manualmente)
-2. aggiornare il codice con i nuovi valori
-3. aggiungere allo slider una timing function per far partire lo slider in automatico (con un bottone per fermarlo)
-4. refactoring
+Descrizione:
+Partendo dal markup della versione svolta in js plain, rifare lo slider ma questa volta usando Vue.
 Bonus:
-aggiungere un effetto al cambio dell'immagine
+1- al click su una thumb, visualizzare in grande l'immagine corrispondente
+2- applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
+3- quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo riprendere quando esce
 */
+
+const app = new Vue({
+  el: "#app",
+  data: {
+    items: [
+      {
+        img: "./img/01.jpg",
+        title: "Svezia",
+        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.",
+      },
+      {
+        img: "./img/02.jpg",
+        title: "Svizzera",
+        text: "Lorem ipsum",
+      },
+      {
+        img: "./img/03.jpg",
+        title: "Gran Bretagna",
+        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      },
+      {
+        img: "./img/04.jpg",
+        title: "Germania",
+        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,",
+      },
+      {
+        img: "./img/05.jpg",
+        title: "Paradise",
+        text: "Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,",
+      },
+    ],
+
+    index: 0,
+  },
+  method: {},
+  mounted() {},
+});
 
 const title = ["Svezia", "Svizzera", "Gran Bretagna", "Germania", "Paradise"];
 
@@ -20,34 +53,6 @@ const text = [
   "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
   "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,",
   "Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,",
-];
-
-const items = [
-  {
-    img: "./img/01.jpg",
-    title: "Svezia",
-    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.",
-  },
-  {
-    img: "./img/02.jpg",
-    title: "Svizzera",
-    text: "Lorem ipsum",
-  },
-  {
-    img: "./img/03.jpg",
-    title: "Gran Bretagna",
-    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-  },
-  {
-    img: "./img/04.jpg",
-    title: "Germania",
-    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,",
-  },
-  {
-    img: "./img/05.jpg",
-    title: "Paradise",
-    text: "Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,",
-  },
 ];
 
 console.log(items);
@@ -99,12 +104,14 @@ thumbsContainer.innerHTML += thumbTemplate;
 const next = document.querySelector(" .fa-circle-chevron-down");
 const prev = document.querySelector(" .fa-circle-chevron-up");
 //console.log(next, prev);
+
 function slideDown() {
   //prendere immagine con currentIndexActive e togliere classe active
   const imgs = document.getElementsByClassName("item");
   imgs[currentIndexActive].classList.remove("active");
   const thumbs = document.getElementsByClassName("thumb");
   thumbs[currentIndexActive].classList.remove("active");
+
   //console.log(imgs);
   if (currentIndexActive === 4) {
     currentIndexActive = 0;

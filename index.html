@@ -25,15 +25,29 @@
   </head>
 
   <body>
-    <div class="main-container">
-      <div id="slider">
-        <div class="items-container"></div>
-        <div class="thumbs-container">
-          <div class="next">
-            <i class="fa-solid fa-circle-chevron-down"></i>
+    <div id="app">
+      <div class="main-container">
+        <div id="slider">
+          <div class="items-container">
+            <div class="item active">
+              <img :src="items[index].img" :alt="items[index].title" />
+              <div class="title">
+                <h2>{{items[index].title}}</h2>
+                <p>{{items[index].text}}</p>
+              </div>
+            </div>
           </div>
-          <div class="prev">
-            <i class="fa-solid fa-circle-chevron-up"></i>
+          <div class="thumbs-container">
+            <div class="thumb active">
+              <img :src="items[index].img" :alt="items[index].title" />
+            </div>
+
+            <div class="next">
+              <i class="fa-solid fa-circle-chevron-down"></i>
+            </div>
+            <div class="prev">
+              <i class="fa-solid fa-circle-chevron-up"></i>
+            </div>
           </div>
         </div>
       </div>
