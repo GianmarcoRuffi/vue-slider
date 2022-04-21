@@ -44,36 +44,19 @@ const app = new Vue({
   },
   methods: {
     slideDown() {
-      img[this.activeIndex].classList.remove("active");
-      const thumbs = document.getElementsByClassName("thumb");
-      thumbs[this.activeIndex].classList.remove("active");
-
       if (this.activeIndex === 4) {
         this.activeIndex = 0;
       } else {
         this.activeIndex++;
       }
-
-      img[this.activeIndex].classList.add("active", "w3-animate-opacity");
-
-      thumbs[this.activeIndex].classList.add("active");
     },
 
     slideUp() {
-      const imgs = document.getElementsByClassName("item");
-      imgs[activeIndex].classList.remove("active");
-      const thumbs = document.getElementsByClassName("thumb");
-      thumbs[activeIndex].classList.remove("active");
-
       if (this.activeIndex === 0) {
-        this.activeIndex = items.length - 1;
+        this.activeIndex = this.items.length - 1;
       } else {
         this.activeIndex--;
       }
-
-      imgs[this.activeIndex].classList.add("active");
-
-      thumbs[this.activeIndex].classList.add("active");
     },
   },
   mounted() {},

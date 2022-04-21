@@ -27,7 +27,7 @@
   <body>
     <div id="app">
       <div class="main-container">
-        <div id="slider">
+        <div id="slider" tabindex="0">
           <div class="items-container">
             <div class="item active">
               <img
@@ -41,7 +41,11 @@
             </div>
           </div>
           <div class="thumbs-container">
-            <div v-for="(items, activeIndex) in items" class="thumb active">
+            <div
+              v-for="(items, activeIndex) in items"
+              :key="activeIndex"
+              :class="activeIndex === activeIndex ? 'thumb active' : 'thumb'"
+            >
               <img :src="items.img" :alt="items.title" />
             </div>
 
