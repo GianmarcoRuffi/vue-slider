@@ -141,14 +141,14 @@ function slideUp() {
 next.addEventListener("click", slideDown);
 prev.addEventListener("click", slideUp);
 
-// Funzione start scorrimento slider al caricamento della pagina
+// // Funzione start scorrimento slider al caricamento della pagina
 
-const startSlider = setInterval(slideDown, 3000);
+// const startSlider = setInterval(slideDown, 3000);
 
-// Funzione stop scorrimento slider
+// // Funzione stop scorrimento slider
 
-document
-  .querySelector(".items-container")
-  .addEventListener("click", function () {
-    clearInterval(startSlider);
-  });
+// document
+//   .querySelector(".items-container")
+//   .addEventListener("click", function () {
+//     clearInterval(startSlider);
+//   });
