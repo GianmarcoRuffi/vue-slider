@@ -39,39 +39,41 @@ const app = new Vue({
       },
     ],
 
-    index: 0,
+    activeIndex: 0,
+    intervalId: null,
   },
   methods: {
     slideDown() {
-      imgs[currentIndexActive].classList.remove("active");
+      img[this.activeIndex].classList.remove("active");
+      const thumbs = document.getElementsByClassName("thumb");
+      thumbs[this.activeIndex].classList.remove("active");
 
-      thumbs[currentIndexActive].classList.remove("active");
-
-      if (currentIndexActive === 4) {
-        currentIndexActive = 0;
+      if (this.activeIndex === 4) {
+        this.activeIndex = 0;
       } else {
-        currentIndexActive++;
+        this.activeIndex++;
       }
 
-      imgs[currentIndexActive].classList.add("active", "w3-animate-opacity");
+      img[this.activeIndex].classList.add("active", "w3-animate-opacity");
 
-      thumbs[currentIndexActive].classList.add("active");
+      thumbs[this.activeIndex].classList.add("active");
     },
 
     slideUp() {
-      imgs[currentIndexActive].classList.remove("active");
+      const imgs = document.getElementsByClassName("item");
+      imgs[activeIndex].classList.remove("active");
+      const thumbs = document.getElementsByClassName("thumb");
+      thumbs[activeIndex].classList.remove("active");
 
-      thumbs[currentIndexActive].classList.remove("active");
-
-      if (currentIndexActive === 0) {
-        currentIndexActive = items.length - 1;
+      if (this.activeIndex === 0) {
+        this.activeIndex = items.length - 1;
       } else {
-        currentIndexActive--;
+        this.activeIndex--;
       }
 
-      imgs[currentIndexActive].classList.add("active");
+      imgs[this.activeIndex].classList.add("active");
 
-      thumbs[currentIndexActive].classList.add("active");
+      thumbs[this.activeIndex].classList.add("active");
     },
   },
   mounted() {},

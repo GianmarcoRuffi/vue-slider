@@ -30,22 +30,25 @@
         <div id="slider">
           <div class="items-container">
             <div class="item active">
-              <img :src="items[index].img" :alt="items[index].title" />
+              <img
+                :src="items[activeIndex].img"
+                :alt="items[activeIndex].title"
+              />
               <div class="title">
-                <h2>{{items[index].title}}</h2>
-                <p>{{items[index].text}}</p>
+                <h2>{{items[activeIndex].title}}</h2>
+                <p>{{items[activeIndex].text}}</p>
               </div>
             </div>
           </div>
           <div class="thumbs-container">
-            <div v-for="(slide, index) in items" class="thumb active">
-              <img :src="slide.img" :alt="slide.title" />
+            <div v-for="(items, activeIndex) in items" class="thumb active">
+              <img :src="items.img" :alt="items.title" />
             </div>
 
             <div class="next" @click="slideDown">
               <i class="fa-solid fa-circle-chevron-down"></i>
             </div>
-            <div class="prev" @click="slideDown">
+            <div class="prev" @click="slideUp">
               <i class="fa-solid fa-circle-chevron-up"></i>
             </div>
           </div>
